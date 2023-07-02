@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 18:08:12 by dravaono          #+#    #+#             */
-/*   Updated: 2023/04/06 18:15:33 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/07/02 16:37:32 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ t_list	*ft_lstlast(t_list *lst)
 	if (!lst)
 		return (0);
 	while (lst->next)
-	lst = lst->next;
+		lst = lst->next;
 	return (lst);
 }

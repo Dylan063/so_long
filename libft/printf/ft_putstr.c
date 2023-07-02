@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 18:50:15 by dravaono          #+#    #+#             */
-/*   Updated: 2023/04/13 18:50:27 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/07/02 16:35:32 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_putstr(char *s)
 		while (s[i])
 		{
 			write(1, &s[i], 1);
-				i++;
+			i++;
 		}
 	}
 	else

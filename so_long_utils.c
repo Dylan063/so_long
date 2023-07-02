@@ -6,18 +6,17 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 06:21:49 by dravaono          #+#    #+#             */
-/*   Updated: 2023/06/19 17:45:52 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/06/29 19:37:41 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
 void	sizemap(t_map *mappy, char *av)
 {
 	int		fd;
 	char	*mapline;
-	
+
 	fd = open(av, O_RDONLY);
 	mapline = get_next_line(fd);
 	mappy->linemap = 0;
@@ -39,10 +38,21 @@ void	cpymap(t_map *mappy, char *av)
 	mappy->mapgnl = malloc((sizeof(char *) + 1) * mappy->linemap);
 	y = 0;
 	mappy->mapgnl[y] = get_next_line(fd);
-	while(++y < mappy->linemap)
+	while (++y < mappy->linemap)
 		mappy->mapgnl[y] = get_next_line(fd);
 	mappy->mapgnl[y] = NULL;
 	close(fd);
+}
+
+void	samelen(t_map *mappy)
+{
+	int	y;
+
+	mappy->lenline = ft_strlen(mappy->mapgnl[0]);
+	y = 0;
+	while (mappy->mapgnl[++y])
+		if (ft_strlen(mappy->mapgnl[y]) != mappy->lenline)
+			ft_error(1);
 }
 
 void	ft_error(int a)
@@ -64,7 +74,4 @@ void	ft_error(int a)
 	else if (a == 8)
 		ft_printf("Error\ncan't open window");
 	exit(1);
-	
 }
-
-//fr un open si c un fd et pas un doss si open renvoi -1 ft error else close fd et ouverture map

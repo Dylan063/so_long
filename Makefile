@@ -6,7 +6,7 @@
 #    By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/25 09:32:49 by dravaono          #+#    #+#              #
-#    Updated: 2023/06/19 18:07:20 by dravaono         ###   ########.fr        #
+#    Updated: 2023/07/02 16:53:11 by dravaono         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ SRCS = main.c 		\
 	so_long_utils.c \
 	parsing.c 		\
 	path.c			\
-	init_mlx.c		
-
-
+	init_mlx.c		\
+	init_mlx2.c
+	
 OBJS = ${SRCS:.c=.o}
 NAME = so_long
 CC = gcc

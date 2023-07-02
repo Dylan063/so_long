@@ -1,45 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_mlx.c                                         :+:      :+:    :+:   */
+/*   init_mlx2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/19 14:21:32 by dravaono          #+#    #+#             */
-/*   Updated: 2023/07/02 16:25:32 by dravaono         ###   ########.fr       */
+/*   Created: 2023/07/02 16:52:32 by dravaono          #+#    #+#             */
+/*   Updated: 2023/07/02 17:23:39 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	*get_image(t_game *game, char *path)
-{
-	int		a;
-	void	*img;
-
-	img = mlx_xpm_file_to_image(game->mlx, path, &a, &a);
-	if (!img)
-		ft_error(7);
-	return (img);
-}
-
-void	init_img(t_game *game)
-{
-	game->img.floor = get_image(game, "./xpm/floor-green.xpm");
-	game->img.mario = get_image(game, "./xpm/mario.xpm");
-	game->img.wall = get_image(game, "./xpm/wall1.xpm");
-	game->img.collec = get_image(game, "./xpm/collec.xpm");
-	game->img.exit = get_image(game, "./xpm/exit.xpm");
-}
-
-void	print_img(t_game *game, void *img, int x, int y)
-{
-	if (!img)
-		ft_error(7);
-	mlx_put_image_to_window(game->mlx, game->win, img, x * 64, y * 64);
-}
-
-/*int	game_loop(t_game *game)
+int	game_loop(t_game *game)
 {
 	int	x;
 	int	y;
@@ -123,33 +96,29 @@ int	key_press(int keycode, t_game *game)
 	get_player(game);
 	if (keycode == 53)
 		exit(0);
-	else if (keycode == 13)
+	if (keycode == 13)
+	{
 		move_player(game, game->playery - 1, game->playerx);
-	else if (keycode == 1)
+		game->move++;
+		number_move(game);
+	}
+	if (keycode == 1)
+	{
 		move_player(game, game->playery + 1, game->playerx);
-	else if (keycode == 0)
+		game->move++;
+		number_move(game);
+	}
+	if (keycode == 0)
+	{
 		move_player(game, game->playery, game->playerx - 1);
-	else if (keycode == 2)
+		game->move++;
+		number_move(game);
+	}
+	if (keycode == 2)
+	{	
 		move_player(game, game->playery, game->playerx + 1);
+		game->move++;
+		number_move(game);
+	}
 	return (0);
-}*/
-
-int	ft_exit(t_game *game)
-{
-	mlx_destroy_window(game->mlx, game->win);
-	exit(0);
-}
-
-void	init_mlx(t_game *game)
-{
-	game->mlx = mlx_init();
-	game->win = mlx_new_window(game->mlx, (game->width - 1) * 64,
-			game->height * 64, "so_long");
-	if (!game->win)
-		ft_error(8);
-	init_img(game);
-	mlx_loop_hook(game->mlx, &game_loop, game);
-	mlx_hook(game->win, 2, 0, &key_press, game);
-	mlx_hook(game->win, 17, 0, &ft_exit, game);
-	mlx_loop(game->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 06:31:00 by dravaono          #+#    #+#             */
-/*   Updated: 2023/06/23 16:46:52 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/07/02 17:09:44 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_img
 
 typedef struct s_game
 {
+	int		move;
 	int		conso;
 	int		playerx;
 	int		playery;
@@ -67,8 +68,16 @@ void		change_s(char **mappath, int y, int x);
 
 // mlx
 
-void	init_mlx(t_game *game);
-
+int			ft_exit(t_game *game);
+void		get_player(t_game *game);
+void		collect(t_game *game);
+void		move_player(t_game *game, int y, int x);
+int			key_press(int keycode, t_game *game);
+void		*get_image(t_game *game, char *path);
+void		init_img(t_game *game);
+void		print_img(t_game *game, void *img, int x, int y);
+int			game_loop(t_game *game);
+void		init_mlx(t_game *game);
+void	number_move(t_game *game);
 
 #endif
-

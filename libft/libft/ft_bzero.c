@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 17:59:58 by dravaono          #+#    #+#             */
-/*   Updated: 2023/04/02 19:19:49 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/07/02 16:32:39 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	ft_bzero(void *s, size_t n)
 	{
 		((unsigned char *) s)[i] = '\0';
 		i++;
-	}	
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:27:55 by dravaono          #+#    #+#             */
-/*   Updated: 2023/04/06 16:57:24 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/07/02 16:34:22 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_lstsize(t_list *lst)
 
 	count = 0;
 	while (lst)
-	{	
+	{
 		lst = lst->next;
 		count++;
 	}
