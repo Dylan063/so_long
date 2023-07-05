@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:08:53 by dravaono          #+#    #+#             */
-/*   Updated: 2023/07/02 17:09:30 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/07/05 16:08:10 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,10 @@
 
 void	fd_test(char *av)
 {
-	int	fd;
-
-	fd = open(av, O_RDONLY);
-	if (fd == -1)
+	if (open(av, O_DIRECTORY) != -1)
+		ft_error(0);
+ 	if (open(av, O_RDONLY) == -1) 
 		ft_error(4);
-	else
-		close(fd);
-}
-
-void	number_move(t_game *game)
-{
-	write(1, "move", 4);
-	ft_putnbr_fd(game->move, 1);
 }
 
 void	parsing(t_map *mappy, char *av)
@@ -37,18 +28,18 @@ void	parsing(t_map *mappy, char *av)
 	samelen(mappy);
 	wall(mappy);
 	allneed(mappy);
+	caractmap(mappy);
 	search_path(mappy);
+	search_path2(mappy);
 }
 
 int	main(int ac, char **av)
 {
 	t_map	mappy;
 	t_game	game;
-	int		i;
 
 	if (ac != 2)
 		return (1);
-	i = 0;
 	if (ft_strncmp(av[1] + ft_strlen(av[1]) - 4, ".ber", 48))
 		ft_error(5);
 	parsing(&mappy, av[1]);
@@ -56,6 +47,31 @@ int	main(int ac, char **av)
 	game.width = mappy.lenline;
 	game.height = mappy.linemap;
 	init_mlx(&game);
-	system("leaks so_long");
 	return (0);
+}
+
+void	allneed(t_map *mappy)
+{
+	cneed(mappy);
+	pneed(mappy);
+	eneed(mappy);
+}
+
+void	caractmap(t_map *mappy)
+{
+	int	y;
+	int	x;
+
+	y = -1;
+	while(mappy->mapgnl[++y])
+	{
+		x = -1;
+		while(mappy->mapgnl[y][++x] != '\n')
+		{
+			if ((mappy->mapgnl[y][x] != '1') && (mappy->mapgnl[y][x] != '0')
+				&& (mappy->mapgnl[y][x] != 'E') && (mappy->mapgnl[y][x] != 'C')
+				&& (mappy->mapgnl[y][x] != 'P'))
+					ft_error(0);
+		}
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:38:00 by dravaono          #+#    #+#             */
-/*   Updated: 2023/06/29 15:40:00 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/07/04 20:00:25 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,32 +98,3 @@ void	eneed(t_map *mappy)
 	if (j != 2)
 		ft_error(3);
 }
-
-void	allneed(t_map *mappy)
-{
-	cneed(mappy);
-	pneed(mappy);
-	eneed(mappy);
-}
-
-/*void	fd_test(char *av)
-{
-	int	fd;
-
-	fd = open(av, O_RDONLY);
-	if (fd == -1)
-		ft_error(4);
-	else
-		close(fd);
-}
-
-void	parsing(t_map *mappy, char *av)
-{
-	fd_test(av);
-	sizemap(mappy, av);
-	cpymap(mappy, av);
-	samelen(mappy);
-	wall(mappy);
-	allneed(mappy);
-	search_path(mappy);
-}*/

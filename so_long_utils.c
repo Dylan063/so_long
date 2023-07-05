@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 06:21:49 by dravaono          #+#    #+#             */
-/*   Updated: 2023/06/29 19:37:41 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/07/04 20:27:59 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	sizemap(t_map *mappy, char *av)
 
 	fd = open(av, O_RDONLY);
 	mapline = get_next_line(fd);
+	if (!mapline)
+		ft_error(0);
 	mappy->linemap = 0;
 	while (mapline)
 	{
@@ -57,21 +59,23 @@ void	samelen(t_map *mappy)
 
 void	ft_error(int a)
 {
+	if (a == 0)
+	 	ft_printf("Error\n");
 	if (a == 1)
 		ft_printf("Error\nbad size of map\n");
 	else if (a == 2)
-		ft_printf("Error\nneed wall for play/n");
+		ft_printf("Error\nneed wall for play\n");
 	else if (a == 3)
-		ft_printf("Error\nmap incomplete");
+		ft_printf("Error\nmap incomplete\n");
 	else if (a == 4)
-		ft_printf("Error\nneed a fd");
+		ft_printf("Error\nneed a fd\n");
 	else if (a == 5)
-		ft_printf("Error\nchange name");
+		ft_printf("Error\nchange name\n");
 	else if (a == 6)
-		ft_printf("Error\nbad path");
+		ft_printf("Error\nbad path\n");
 	else if (a == 7)
-		ft_printf("Error\ncan't find texture");
+		ft_printf("Error\ncan't find texture\n");
 	else if (a == 8)
-		ft_printf("Error\ncan't open window");
+		ft_printf("Error\ncan't open window\n");
 	exit(1);
 }

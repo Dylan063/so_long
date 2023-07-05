@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 16:52:32 by dravaono          #+#    #+#             */
-/*   Updated: 2023/07/02 17:23:39 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/07/04 19:57:25 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,16 @@ void	collect(t_game *game)
 
 void	move_player(t_game *game, int y, int x)
 {
+	static int	j;
+
+	if (!j)
+		j = 0;
 	if (game->map[y][x] == 'E')
 		collect(game);
 	else if (game->map[y][x] != '1')
 	{
+		j++;
+		ft_printf("%d\n", j);
 		game->map[y][x] = 'P';
 		game->map[game->playery][game->playerx] = '0';
 	}
@@ -97,28 +103,12 @@ int	key_press(int keycode, t_game *game)
 	if (keycode == 53)
 		exit(0);
 	if (keycode == 13)
-	{
 		move_player(game, game->playery - 1, game->playerx);
-		game->move++;
-		number_move(game);
-	}
 	if (keycode == 1)
-	{
 		move_player(game, game->playery + 1, game->playerx);
-		game->move++;
-		number_move(game);
-	}
 	if (keycode == 0)
-	{
 		move_player(game, game->playery, game->playerx - 1);
-		game->move++;
-		number_move(game);
-	}
 	if (keycode == 2)
-	{	
 		move_player(game, game->playery, game->playerx + 1);
-		game->move++;
-		number_move(game);
-	}
 	return (0);
 }

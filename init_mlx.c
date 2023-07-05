@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 14:21:32 by dravaono          #+#    #+#             */
-/*   Updated: 2023/07/02 16:25:32 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/07/03 19:21:09 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,101 +38,6 @@ void	print_img(t_game *game, void *img, int x, int y)
 		ft_error(7);
 	mlx_put_image_to_window(game->mlx, game->win, img, x * 64, y * 64);
 }
-
-/*int	game_loop(t_game *game)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (game->map[y])
-	{
-		x = 0;
-		while (game->map[y][x] != '\n')
-		{
-			print_img(game, game->img.floor, x, y);
-			if (game->map[y][x] == 'P')
-				print_img(game, game->img.mario, x, y);
-			if (game->map[y][x] == '1')
-				print_img(game, game->img.wall, x, y);
-			if (game->map[y][x] == 'C')
-				print_img(game, game->img.collec, x, y);
-			if (game->map[y][x] == 'E')
-				print_img(game, game->img.exit, x, y);
-			x++;
-		}
-		y++;
-	}
-	return (0);
-}
-
-void	get_player(t_game *game)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (game->map[++y])
-	{
-		x = 0;
-		while (game->map[y][++x])
-		{
-			if (game->map[y][x] == 'P')
-			{
-				game->playerx = x;
-				game->playery = y;
-			}
-		}
-	}
-}
-
-void	collect(t_game *game)
-{
-	int	x;
-	int	y;
-	int	j;
-
-	j = 0;
-	y = -1;
-	while (game->map[++y])
-	{
-		x = -1;
-		while (game->map[y][++x])
-		{
-			if (game->map[y][x] == 'C')
-				j++;
-		}
-	}
-	if (j == 0)
-		exit(0);
-}
-
-void	move_player(t_game *game, int y, int x)
-{
-	if (game->map[y][x] == 'E')
-		collect(game);
-	else if (game->map[y][x] != '1')
-	{
-		game->map[y][x] = 'P';
-		game->map[game->playery][game->playerx] = '0';
-	}
-}
-
-int	key_press(int keycode, t_game *game)
-{
-	get_player(game);
-	if (keycode == 53)
-		exit(0);
-	else if (keycode == 13)
-		move_player(game, game->playery - 1, game->playerx);
-	else if (keycode == 1)
-		move_player(game, game->playery + 1, game->playerx);
-	else if (keycode == 0)
-		move_player(game, game->playery, game->playerx - 1);
-	else if (keycode == 2)
-		move_player(game, game->playery, game->playerx + 1);
-	return (0);
-}*/
 
 int	ft_exit(t_game *game)
 {
