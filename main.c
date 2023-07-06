@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:08:53 by dravaono          #+#    #+#             */
-/*   Updated: 2023/07/05 16:08:10 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:21:28 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	fd_test(char *av)
 {
 	if (open(av, O_DIRECTORY) != -1)
 		ft_error(0);
- 	if (open(av, O_RDONLY) == -1) 
+	if (open(av, O_RDONLY) == -1) 
 		ft_error(4);
 }
 
@@ -63,15 +63,15 @@ void	caractmap(t_map *mappy)
 	int	x;
 
 	y = -1;
-	while(mappy->mapgnl[++y])
+	while (mappy->mapgnl[++y])
 	{
 		x = -1;
-		while(mappy->mapgnl[y][++x] != '\n')
+		while (mappy->mapgnl[y][++x] != '\n')
 		{
-			if ((mappy->mapgnl[y][x] != '1') && (mappy->mapgnl[y][x] != '0')
-				&& (mappy->mapgnl[y][x] != 'E') && (mappy->mapgnl[y][x] != 'C')
-				&& (mappy->mapgnl[y][x] != 'P'))
-					ft_error(0);
+			if ((mappy->mapgnl[y][x] != '1') && (mappy->mapgnl[y][x] != '0') 
+			&& (mappy->mapgnl[y][x] != 'E') && (mappy->mapgnl[y][x] != 'C') 
+			&& (mappy->mapgnl[y][x] != 'P'))
+				ft_error(0);
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 06:21:49 by dravaono          #+#    #+#             */
-/*   Updated: 2023/07/04 20:27:59 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/07/06 16:21:59 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	samelen(t_map *mappy)
 void	ft_error(int a)
 {
 	if (a == 0)
-	 	ft_printf("Error\n");
+		ft_printf("Error\n");
 	if (a == 1)
 		ft_printf("Error\nbad size of map\n");
 	else if (a == 2)
